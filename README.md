@@ -1,6 +1,7 @@
 # ArchivePlayer
 
 NOTE: As of July 2026, ArchivePlayer is still under development, see the Roadmap for a list of features currently planned and being implemented.
+
 ArchivePlayer transforms a local collection of MP3 files into a fully searchable, cloud-ready streaming application. Designed to mimic modern streaming platforms, it allows users to effortlessly index their media, search by track, artist, or album, manage custom playlists, and securely share their music library with a network of friends.
 
 ## Table of Contents
