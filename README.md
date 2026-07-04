@@ -4,6 +4,10 @@ NOTE: As of July 2026, ArchivePlayer is still under development, see the Roadmap
 
 ArchivePlayer transforms a local collection of MP3 files into a fully searchable, cloud-ready streaming application. Designed to mimic modern streaming platforms, it allows users to effortlessly index their media, search by track, artist, or album, manage custom playlists, and securely share their music library with a network of friends.
 
+Link to Render-hosted project: **https://archiveplayer-frontend.onrender.com/** 
+
+Note: Render may take a minute or two to spin up when using this link.
+
 ## Table of Contents
 1.  [Prerequisites](#prerequisites)
 2.  [Running the Application Locally with Docker Compose](#running-the-application-locally-with-docker-compose)
