@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Sample Song Title 1",
+    "artistName": "Sample Artist 1",
+    "albumName": "Sample Album 1",
+    "durationInSeconds": 240,
+    "filePath": "Sample Artist 1/Sample Album 1/Sample Song Title 1.mp3"
+  }
+]

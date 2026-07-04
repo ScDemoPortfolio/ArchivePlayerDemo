@@ -1,0 +1,55 @@
+:root {
+  /* Semi-Modern Napster / Winamp inspired palette */
+  --bg-app: #f0f2f5;
+  --bg-sidebar: #2c3e50;
+  --bg-active: #34495e;
+  --bg-content: #ffffff;
+  --bg-player: #1a1a1a;
+
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-on-dark: #ecf0f1;
+  --text-accent: #3498db;
+
+  --border-color: #dcdde1;
+  --accent-color: #3498db; /* Napster Blue */
+  --accent-hover: #2980b9;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+
+  --cat-orange: #ff9f43; /* Napster Cat vibe */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* Scrollbar styling - Modern but visible */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}

@@ -1,0 +1,68 @@
+# Gitignore for ArchivePlayer Project
+
+# -------------------------------------------------------------------
+# General / OS
+# -------------------------------------------------------------------
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.pnpm-store/
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# -------------------------------------------------------------------
+# Java / Maven Backend
+# -------------------------------------------------------------------
+ArchivePlayer-backend/target/
+ArchivePlayer-backend/pom.xml.tag
+ArchivePlayer-backend/pom.xml.releaseBackup
+ArchivePlayer-backend/pom.xml.versionsBackup
+ArchivePlayer-backend/release.properties
+ArchivePlayer-backend/dependency-reduced-pom.xml
+ArchivePlayer-backend/build/
+# Maven Wrapper
+ArchivePlayer-backend/.mvn/wrapper/maven-wrapper.jar
+# Logs
+ArchivePlayer-backend/*.log
+
+# -------------------------------------------------------------------
+# Node / React Frontend
+# -------------------------------------------------------------------
+ArchivePlayer-frontend/node_modules/
+ArchivePlayer-frontend/dist/
+ArchivePlayer-frontend/build/
+ArchivePlayer-frontend/.vite/
+ArchivePlayer-frontend/*.log
+ArchivePlayer-frontend/.env
+
+# -------------------------------------------------------------------
+# Docker
+# -------------------------------------------------------------------
+# Ignore Docker Compose .env files (if any specific to Docker Compose)
+.env
+# Ignore Docker volumes data (managed by Docker, not Git)
+# This is for named volumes, not bind mounts.
+# For bind mounts like sample-music, the content is tracked if not ignored elsewhere.
+# db_data is a named volume, so its content is not in the repo.
+
+# -------------------------------------------------------------------
+# Specific to this project
+# -------------------------------------------------------------------
+# We explicitly include sample-music for demo purposes, so no ignore rule here.
+# If sample-music were very large, we might use Git LFS or ignore it and provide download instructions.

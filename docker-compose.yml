@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./ArchivePlayer-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://archive-db:5432/archiveplayer_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      ALLOWED_ORIGINS: http://localhost:3000,http://localhost:8080
+      app.music.root-path: /app/archive
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+    volumes:
+      - ./ArchivePlayer-backend/sample-music:/app/archive
+    depends_on:
+      - archive-db
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./ArchivePlayer-frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:8080/api
+    ports:
+      - "3000:80"
+    environment:
+      NGINX_BACKEND_HOST: http://backend:8080
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  archive-db:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_DB: archiveplayer_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:

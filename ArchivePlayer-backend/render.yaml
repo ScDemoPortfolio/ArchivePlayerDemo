@@ -1,0 +1,54 @@
+databases:
+  - name: archive-db
+    plan: free
+    databaseName: archive_db
+    user: private_arch_db_owner_123
+
+services:
+  # 2. The Backend
+  - type: web
+    name: archiveplayer-backend
+    env: docker
+    plan: free
+    dockerContext: ./ArchivePlayer-backend
+    dockerfilePath: ./ArchivePlayer-backend/Dockerfile
+    healthCheckPath: /status
+    envVars:
+      # Fetch the full internal connection string into a CUSTOM variable
+      - key: RENDER_DB_URL_RAW
+        fromDatabase:
+          name: archive-db
+          property: internalConnectionString
+
+      # Fetch user and password separately as well, for robustness in parsing
+      - key: RENDER_DB_USER_RAW
+        fromDatabase:
+          name: archive-db
+          property: user
+      - key: RENDER_DB_PASSWORD_RAW
+        fromDatabase:
+          name: archive-db
+          property: password
+
+      # APP_JWT_SECRET will now be generated directly in the entrypoint script if not set
+      # Remove the generateValue: true for APP_JWT_SECRET from here
+
+      - key: ALLOWED_ORIGINS
+        value: https://archiveplayer-frontend.onrender.com # Adjust if your frontend name differs
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: MUSIC_ROOT_PATH
+        value: /app/archive
+
+  # 3. The Frontend
+  - type: web
+    name: archiveplayer-frontend
+    env: docker
+    plan: free
+    dockerContext: ./ArchivePlayer-frontend
+    dockerfilePath: ./ArchivePlayer-frontend/Dockerfile
+    envVars:
+      - key: VITE_API_URL
+        value: https://archiveplayer-backend.onrender.com/api
+      - key: NGINX_BACKEND_HOST
+        value: http://archiveplayer-backend:10000
