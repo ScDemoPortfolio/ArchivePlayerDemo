@@ -6,7 +6,7 @@ ArchivePlayer transforms a local collection of MP3 files into a fully searchable
 
 WARNING: Due to the limitations of hosting on render, there may be delays of up to 60 seconds on initial login request while the server spins up.
 
-Link to Render-hosted project: **https://archiveplayer-frontend.onrender.com/** 
+Link to Render-hosted project: **https://archiveplayer-frontend.onrender.com/?key=arch-access-99** 
 
 Note: Render may take a minute or two to spin up when using this link.
 
